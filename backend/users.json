@@ -1,0 +1,14 @@
+[
+  {
+    "nome": "Helena GERENTE",
+    "email": "Helena@admin.com",
+    "senha": "1741",
+    "role": "admin"
+  },
+  {
+    "nome": "Julio",
+    "email": "julio@gmail.com",
+    "senha": "123",
+    "role": "user"
+  }
+]
