@@ -173,10 +173,13 @@ app.post("/removerUsuario", (req, res) => {
 // =====================================
 // FRONTEND
 // =====================================
-app.use(express.static(path.join(__dirname, "../frontend")));
+const frontendPath = path.join(process.cwd(), "frontend");
+app.use(express.static(frontendPath));
+
 
 app.get("/", (req, res) => {
-    res.sendFile(path.join(__dirname, "../frontend/index.html"));
+    res.sendFile(path.join(frontendPath, "index.html"));
+
 });
 
 // =====================================
