@@ -1,4 +1,4 @@
-const API_BASE = "http://localhost:3000";
+const API_BASE = ""; 
 let todasPresencas = [];
 
 // =============================
@@ -37,7 +37,7 @@ function mostrarBotaoUsuarios() {
 // PRESENÇAS
 // =============================
 function carregarTodasPresencas() {
-    fetch(API_BASE + "/presencas")
+    fetch("/presencas")
         .then(r => r.json())
         .then(data => {
             todasPresencas = data;

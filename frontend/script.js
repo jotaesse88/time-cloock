@@ -1,4 +1,4 @@
-const API_BASE = "http://localhost:3000";
+const API_BASE = "";
 
 //----------------------------------------
 // LOGIN
@@ -65,7 +65,6 @@ function checkAuth() {
         carregarHistorico();
     })
     .catch(() => window.location.href = "index.html");
-    
 }
 
 //----------------------------------------
@@ -75,9 +74,7 @@ function logout() {
     localStorage.removeItem("token");
     window.location.href = "index.html";
 }
-//----------------------------------------
-// REGISTRAR ENTRADA / SAÍDA
-//----------------------------------------
+
 //----------------------------------------
 // REGISTRAR ENTRADA / SAÍDA
 //----------------------------------------
@@ -97,37 +94,14 @@ function registrar(tipo) {
     });
 }
 
-// ---- CORREÇÃO AQUI !!! ----
+// Garantir botões funcionando
 document.addEventListener("DOMContentLoaded", () => {
     const btnEntrada = document.getElementById("btnEntrada");
     const btnSaida = document.getElementById("btnSaida");
 
-    if (btnEntrada) {
-        btnEntrada.onclick = () => registrar("entrada");
-    }
-
-    if (btnSaida) {
-        btnSaida.onclick = () => registrar("saida");
-    }
+    if (btnEntrada) btnEntrada.onclick = () => registrar("entrada");
+    if (btnSaida) btnSaida.onclick = () => registrar("saida");
 });
-// ---- FIM DA CORREÇÃO ----
-
-
-
-// Garantir que o DOM carregou antes de pegar os botões
-document.addEventListener("DOMContentLoaded", () => {
-    const btnEntrada = document.getElementById("btnEntrada");
-    const btnSaida = document.getElementById("btnSaida");
-
-    if (btnEntrada) {
-        btnEntrada.onclick = () => registrar("entrada");
-    }
-
-    if (btnSaida) {
-        btnSaida.onclick = () => registrar("saida");
-    }
-});
-
 
 //----------------------------------------
 // CARREGAR HISTÓRICO DO USUÁRIO
@@ -147,6 +121,7 @@ function carregarHistorico() {
                 li.classList = "list-group-item";
                 li.textContent = `${item.tipo.toUpperCase()} - ${new Date(item.horario).toLocaleString("pt-BR")}`;
                 ul.appendChild(li);
-            });
+            })
+
         });
 }

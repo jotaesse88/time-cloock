@@ -2,7 +2,7 @@ function startAdminPage() {
     const token = localStorage.getItem("token");
     if (!token) return window.location.href = "index.html";
 
-    fetch("http://localhost:3000/auth", {
+    fetch("/auth", {
         headers: { Authorization: "Bearer " + token }
     })
     .then(r => r.json())
@@ -18,3 +18,4 @@ function startAdminPage() {
     })
     .catch(() => window.location.href = "index.html");
 }
+
